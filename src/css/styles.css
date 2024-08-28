@@ -167,3 +167,44 @@ span li a:hover {
         transform: rotate(90deg) translateX(20px) translateY(15px);
     }
 }
+
+/*Menylista*/
+#menu-container {
+    margin-top: 100px;
+    margin-bottom: 250px;
+    width: 80%;
+    margin-inline: auto;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr); 
+    grid-template-rows: auto; 
+    grid-template-areas:
+        "header header"
+        "appetizer main"
+        "dessert dessert";
+    gap: 10px; 
+}
+
+#menu-container h2 {
+    grid-area: header; 
+    text-align: center;
+}
+
+#appetizerList {
+    grid-area: appetizer; 
+    color: black;
+    border: 2px solid black;
+}
+
+#appetizerItem {
+    background-color: #7A7A7A;
+}
+
+#mainCourseList {
+    grid-area: main; 
+    border: 2px solid black;
+}
+
+#dessertList {
+    grid-area: dessert; 
+    border: 2px solid black
+}
