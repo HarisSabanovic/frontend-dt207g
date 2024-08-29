@@ -8,16 +8,18 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inria+Serif:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&display=swap" rel="stylesheet">
+<script src="js/main.js" defer></script>
 </head>
 <body>
 
+    <div id="page1">
     <div id="border-wrapper"></div>
     <header>
         <div id="adress">Tallviksvägen 12, 123 45 Lillsjön</div>
         <nav>
             <ul>
-                <li><a href="#">Meny</a></li>
-                <li><a href="#">Historia</a></li>
+                <li><a href="#menu-container">Meny</a></li>
+                <li><a href="login.html">Historia</a></li>
                 <li><a href="#">Öppetider</a></li>
                 <span><li><a href="#">Boka Bord</a></li></span>
             </ul>
@@ -25,12 +27,7 @@
     </header>
 
     <div id="hero-title">
-        <div id="line1"></div>
-        <div id="line2"></div>
-        <div id="line3"></div>
         <h1>Èthique</h1>
-        <div id="line3"></div>
-        <div id="line2"></div>
     </div>
 
     <div id="intro-words">
@@ -46,8 +43,26 @@
     </div>
 
     <div id="arrow">
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512"><!--!Font Awesome Free 6.6.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.--><path d="M310.6 233.4c12.5 12.5 12.5 32.8 0 45.3l-192 192c-12.5 12.5-32.8 12.5-45.3 0s-12.5-32.8 0-45.3L242.7 256 73.4 86.6c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0l192 192z"/></svg>
+        <a href="#menu-container"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512" ><!--!Font Awesome Free 6.6.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.--><path d="M310.6 233.4c12.5 12.5 12.5 32.8 0 45.3l-192 192c-12.5 12.5-32.8 12.5-45.3 0s-12.5-32.8 0-45.3L242.7 256 73.4 86.6c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0l192 192z"/></svg></a>
     </div>
 
+</div>
+
+
+    <div id="menu-container">
+        <h2>Meny</h2>
+        
+        <div id="appetizerList">
+            <h3>Förrätt</h3>
+        </div>
+
+        <div id="mainCourseList">
+            <h3>Varmrätt</h3>
+        </div>
+
+        <div id="dessertList">
+            <h3>Dessert</h3>
+        </div>
+    </div>
 </body>
 </html>
