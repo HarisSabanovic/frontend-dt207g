@@ -41,6 +41,10 @@
     font-style: italic;
   }
   
+  #page1 {
+    width: 100vw;
+    height: 100vh;
+  }
 
   /*ramar in hela skärmen och hemsidan*/
 #border-wrapper {
@@ -187,21 +191,50 @@ span li a:hover {
 #menu-container h2 {
     grid-area: header; 
     text-align: center;
+    font-size: 45px;
 }
 
 #appetizerList {
     grid-area: appetizer; 
+    border: 100px solid;
+    border-image: url(/src/assets/menu-frame.png) 30%;
     color: black;
-    border: 2px solid black;
+    padding: 1em;
 }
 
-#appetizerItem {
-    background-color: #7A7A7A;
+#appetizerList h3 {
+    text-align: center;
+    margin-bottom: 30px;
+    font-size: 34px;
+}
+
+.appetizer-item {
+    margin-bottom: 20px;
+}
+
+.appetizer-item p {
+    padding: 5px;
 }
 
 #mainCourseList {
-    grid-area: main; 
-    border: 2px solid black;
+    border: 100px solid;
+    border-image: url(/src/assets/menu-frame.png) 30%;
+    color: black;
+    padding: 1em;
+}
+
+#mainCourseList h3 {
+    text-align: center;
+    margin-bottom: 30px;
+    font-size: 34px;
+}
+
+.mainCourse-item {
+    margin-bottom: 20px;
+}
+
+.mainCourse-item p {
+    padding: 5px;
 }
 
 #dessertList {
