@@ -1,6 +1,12 @@
-//Hämta förräter
 
-async function fetchAppetizer() {
+document.addEventListener('DOMContentLoaded', () => {
+    fetchAppetizers();
+    fetchMainCourse();
+});
+
+
+//Hämta förräter
+async function fetchAppetizers() {
     try {
         const response = await fetch("http://localhost:5000/api/menu");
 
@@ -19,12 +25,48 @@ async function fetchAppetizer() {
         appetizers.forEach(appetizer => {
             const div = document.createElement('div');
             div.className = 'appetizer-item';
-            div.innerHTML = `<strong>${appetizer.name}</strong> - ${appetizer.description} (${appetizer.price} kr)`;
+            div.innerHTML = `
+                <p class="appetizer-name"><strong>${appetizer.name}</strong></p>
+                <p class="appetizer-description">${appetizer.description}</p>
+                 <p class="appetizer-price"><strong>${appetizer.price}kr </strong></p>
+             `;
             appetizersList.appendChild(div);
         });
 
+
     } catch(error) {
         console.log("error: " + error.message);
+    }
+    
+}
+
+async function fetchMainCourse() {
+
+    try {
+        const response = await fetch("http://localhost:5000/api/menu");
+
+        if(!response.ok) {
+            throw new Error("Kunde inte hämta Varmrätter")
+        }
+
+        const data = await response.json();
+
+        const mainCourses = data.filter(item => item.category === "Varmrätt");
+
+        const mainCourseDiv = document.getElementById("mainCourseList");
+
+        mainCourses.forEach(mainCourse => {
+            const div = document.createElement('div');
+            div.className = 'mainCourse-item';
+            div.innerHTML = `
+                <p class="mainCourse-name"><strong>${mainCourse.name}</strong></p>
+                <p class="mainCourse-description">${mainCourse.description}</p>
+                 <p class="mainCourse-price"><strong>${mainCourse.price}kr </strong></p>
+             `;
+             mainCourseDiv.appendChild(div);
+        });
+    } catch(error) {
+
     }
     
 }
