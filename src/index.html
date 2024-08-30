@@ -28,6 +28,8 @@
 
     <div id="hero-title">
         <h1>Èthique</h1>
+        <p>
+            Välkommen till Ethique, en fransk gourmetrestaurang där elegans möter lyx. Upplev en sublim kulinarisk resa med delikata rätter, raffinerad atmosfär och en oförglömlig smakupplevelse. Bon appétit!</p>
     </div>
 
     <div id="intro-words">
@@ -63,6 +65,55 @@
         <div id="dessertList">
             <h3>Dessert</h3>
         </div>
+    </div>
+
+
+    <div id="history-container">
+        <h3>Historien om Restaurang Éthique</h3>
+        <p>I en charmig och pittoresk del av Göteborg, vid den eleganta Västra Hamngatan, ligger den exklusiva restaurangen Éthique. Restaurangen är en oas av raffinerad fransk gastronomi och är känd för att kombinera klassiska kulinariska traditioner med ett hållbart och etiskt perspektiv.</p>
+        
+        <div id="history-info">
+
+            <div id="text-left">
+                <h4>Grundandet och Visionen</h4>
+                <p>Éthique grundades år 2022 av den passionerade kocken och Française Amélie Dubois. Med en bakgrund från några av Europas mest prestigefyllda restauranger, hade Amélie en vision om att skapa en plats där fransk matlagning inte bara är en konst utan också en etisk och hållbar upplevelse. När Amélie upptäckte den perfekta lokalen på Västra Hamngatan, visste hon att det var den idealiska platsen för att förverkliga sin dröm.</p>
+           
+                <h4>En Kulinarisk Destination</h4>
+                <p>Med sin kombination av traditionell fransk elegans och ett modernt etiskt perspektiv, har Éthique snabbt blivit en destination för matälskare i Göteborg och internationella gäster. Den erbjuder en unik matupplevelse som är både lyxig och hållbar.
+                    Välkommen till Éthique – där varje måltid är en konstform, och varje besök är en hyllning till det bästa av fransk och nordisk gastronomi.</p>
+            </div>
+
+            <div id="image-right">
+                <img src="/src/assets/eiffel-tower.jpg" alt="svart och vit bild på eiffeltornet">
+            </div>
+
+
+        </div>
+    </div>
+
+    <div id="booking-container">
+        <h1>Boka Bord</h1>
+        <form id="booking-form">
+            <label for="first-name">Förnamn:</label>
+            <input type="text" id="first-name" name="firstName" required>
+            
+            <label for="last-name">Efternamn:</label>
+            <input type="text" id="last-name" name="lastName" required>
+            
+            <label for="email">E-post:</label>
+            <input type="email" id="email" name="email" required>
+            
+            <label for="phone-number">Telefonnummer:</label>
+            <input type="tel" id="phone-number" name="phoneNumber" required>
+            
+            <label for="booking-date-time">Datum och Tid:</label>
+            <input type="datetime-local" id="booking-date-time" name="bookingDateTime" required>
+            
+            <label for="amount-people">Antal personer:</label>
+            <input type="number" id="amount-people" name="amountPeople" required min="1">
+            
+            <button type="submit">Boka</button>
+        </form>
     </div>
 </body>
 </html>
