@@ -9,6 +9,7 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inria+Serif:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&display=swap" rel="stylesheet">
 <script src="js/main.js" defer></script>
+<script src="/src/js/nav.js" type="module" defer></script>
 </head>
 <body>
 
@@ -16,7 +17,16 @@
     <div id="border-wrapper"></div>
     <header>
         <div id="adress">Tallviksvägen 12, 123 45 Lillsjön</div>
-        <nav>
+
+        <div id="menu-toggle" class="menu-toggle">
+            <span id="cross1"></span>
+            <span id="horizontal"></span>
+            <span id="cross2"></span>
+        </div>
+
+        <nav id="nav-menu">
+
+
             <ul>
                 <li><a href="#menu-container">Meny</a></li>
                 <li><a href="login.html">Historia</a></li>
@@ -51,6 +61,34 @@
 </div>
 
 
+<hr>
+
+<div id="history-container">
+    <h3>Historien om Restaurang Éthique</h3>
+    <p>I en charmig och pittoresk del av Göteborg, vid den eleganta Västra Hamngatan, ligger den exklusiva restaurangen Éthique. Restaurangen är en oas av raffinerad fransk gastronomi och är känd för att kombinera klassiska kulinariska traditioner med ett hållbart och etiskt perspektiv.</p>
+    
+    <div id="history-info">
+
+        <div id="text-left">
+            <h4>Grundandet och Visionen</h4>
+            <p>Éthique grundades år 2022 av den passionerade kocken och Française Amélie Dubois. Med en bakgrund från några av Europas mest prestigefyllda restauranger, hade Amélie en vision om att skapa en plats där fransk matlagning inte bara är en konst utan också en etisk och hållbar upplevelse. När Amélie upptäckte den perfekta lokalen på Västra Hamngatan, visste hon att det var den idealiska platsen för att förverkliga sin dröm.</p>
+       
+            <h4>En Kulinarisk Destination</h4>
+            <p>Med sin kombination av traditionell fransk elegans och ett modernt etiskt perspektiv, har Éthique snabbt blivit en destination för matälskare i Göteborg och internationella gäster. Den erbjuder en unik matupplevelse som är både lyxig och hållbar.
+                Välkommen till Éthique – där varje måltid är en konstform, och varje besök är en hyllning till det bästa av fransk och nordisk gastronomi.</p>
+        </div>
+
+        <div id="image-right">
+            <img src="/src/assets/eiffel-tower.jpg" alt="svart och vit bild på eiffeltornet">
+        </div>
+
+
+    </div>
+</div>
+
+
+<hr>
+
     <div id="menu-container">
         <h2>Meny</h2>
         
@@ -68,30 +106,12 @@
     </div>
 
 
-    <div id="history-container">
-        <h3>Historien om Restaurang Éthique</h3>
-        <p>I en charmig och pittoresk del av Göteborg, vid den eleganta Västra Hamngatan, ligger den exklusiva restaurangen Éthique. Restaurangen är en oas av raffinerad fransk gastronomi och är känd för att kombinera klassiska kulinariska traditioner med ett hållbart och etiskt perspektiv.</p>
-        
-        <div id="history-info">
+    <hr>
 
-            <div id="text-left">
-                <h4>Grundandet och Visionen</h4>
-                <p>Éthique grundades år 2022 av den passionerade kocken och Française Amélie Dubois. Med en bakgrund från några av Europas mest prestigefyllda restauranger, hade Amélie en vision om att skapa en plats där fransk matlagning inte bara är en konst utan också en etisk och hållbar upplevelse. När Amélie upptäckte den perfekta lokalen på Västra Hamngatan, visste hon att det var den idealiska platsen för att förverkliga sin dröm.</p>
-           
-                <h4>En Kulinarisk Destination</h4>
-                <p>Med sin kombination av traditionell fransk elegans och ett modernt etiskt perspektiv, har Éthique snabbt blivit en destination för matälskare i Göteborg och internationella gäster. Den erbjuder en unik matupplevelse som är både lyxig och hållbar.
-                    Välkommen till Éthique – där varje måltid är en konstform, och varje besök är en hyllning till det bästa av fransk och nordisk gastronomi.</p>
-            </div>
-
-            <div id="image-right">
-                <img src="/src/assets/eiffel-tower.jpg" alt="svart och vit bild på eiffeltornet">
-            </div>
-
-
-        </div>
-    </div>
 
     <div id="booking-container">
+
+        <div id="booking-formDiv">
         <h1>Boka Bord</h1>
         <form id="booking-form">
             <label for="first-name">Förnamn:</label>
@@ -115,5 +135,37 @@
             <button type="submit">Boka</button>
         </form>
     </div>
+
+        <div id="workHours">
+            <h4>Öppetider</h4>
+            <p>Måndag: Stängt</p>
+            <p>Tisdag: 17-22</p>
+            <p>Onsdag: 17-22</p>
+            <p>Torsdag: 17-23</p>
+            <p>Fredag: 17-01</p>
+            <p>Lördag: 17-01</p>
+            <p>Söndag: Stängt</p>
+        </div>
+    </div>
+
+
+    <footer>
+        <div class="footer-content">
+            <nav>
+                <ul class="footer-links">
+                    <li><a href="#hero-title">Startsida</a></li>
+                    <li><a href="#history-container">Historia</a></li>
+                    <li><a href="#booking-container">Boka Bord</a></li>
+                    <li><a href="#menu-container">Meny</a></li>
+                    <li><a href="login.html">Admin Login</a></li>
+                </ul>
+            </nav>
+            <p>&copy; 2024 Resturang Èthique. Alla rättigheter förbehållna.</p>
+        </div>
+    </footer>
+
+    <footer>
+
+    </footer>
 </body>
 </html>
