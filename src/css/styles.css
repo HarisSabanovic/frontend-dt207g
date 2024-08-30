@@ -107,45 +107,25 @@ span li a:hover {
 /*huvud innehåll*/
 
 #hero-title h1 {
-    font-size: 80px;
+    font-size: 100px;
     font-weight: lighter;
     text-align: center;
-    margin-top: 1rem;
+    margin-top: 2rem;
 }
 
-#line1 {
-    height: 1px;
-    background-color: black;
-    width: 50%;
+#hero-title p {
+    font-size: 24px;
+    width: 50vw;
     margin-inline: auto;
-    margin-top: 50px;
-
-    &:hover {
-        border-bottom: 2px solid black;
-    }
-}
-
-#line2 {
-    height: 1px;
-    background-color: black;
-    width: 40%;
-    margin-inline: auto;
-    margin-top: 40px;
-}
-
-#line3 {
-    height: 1px;
-    background-color: black;
-    width: 30%;
-    margin-inline: auto;
-    margin-top: 40px;
+    text-align: center;
 }
 
 #intro-words {
     display: flex;
     justify-content: space-evenly;
-    margin-top: 50px;
     font-size: 25px;
+    height: 30%;
+    align-items: center;
 }
 
 #intro-words svg {
@@ -169,6 +149,12 @@ span li a:hover {
 
     &:hover {
         transform: rotate(90deg) translateX(20px) translateY(15px);
+    }
+}
+
+@media only screen and (min-width: 1200px){
+    #intro-words p {
+        font-size: 30px;
     }
 }
 
@@ -217,8 +203,8 @@ span li a:hover {
 }
 
 #mainCourseList {
-    border: 100px solid;
-    border-image: url(/src/assets/dessert-border.png) 30%;
+    border: 100px solid white;
+    /*border-image: url(/src/assets/dessert-border.png) 30%;*/
     color: black;
     padding: 1em;
 }
