@@ -257,4 +257,40 @@ span li a:hover {
     padding: 5px;
 }
 
+/*historia*/
+#history-container {
+    width: 80%;
+    margin-inline: auto;
+    border: 80px solid;
+    border-image: url(/src/assets/border-history.png) 30%;
+}
 
+#history-container h3 {
+    text-align: center;
+    font-size: 40px;
+}
+
+#history-info {
+    display: flex;
+}
+
+#text-left {
+    width: 50%;
+}
+
+#text-left h4{
+    font-size: 30px;
+    margin-top: 6%;
+}
+
+#text-left p {
+    font-size: 18px;
+}
+
+#image-right {
+    width: 50%;
+}
+
+#image-right img {
+    max-width: 100%;
+}
