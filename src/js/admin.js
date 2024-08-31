@@ -1,45 +1,32 @@
-document.addEventListener('DOMContentLoaded', () => {
-    fetchMenuItems(); // Här anropas funktionen för att hämta menyobjekten
-
-    async function fetchMenuItems() {
-        try {
-            const response = await fetch('http://localhost:5000/api/menu');
-            if (!response.ok) {
-                throw new Error('Failed to fetch menu items');
-            }
-            const menuItems = await response.json();
-            console.log("hallååååå"); // Bekräftar att funktionen körs
-            displayMenuItems(menuItems);
-        } catch (error) {
-            console.error('Error fetching menu items:', error);
-        }
-    }
+document.addEventListener("DOMContentLoaded", function () {
+    fetchMenu();
 });
 
-function displayMenuItems(menuItems) {
-    const menuContainer = document.getElementById('menu-items');
-    menuContainer.innerHTML = ''; // Rensa tidigare innehåll
+async function fetchMenu() {
 
-    menuItems.forEach(item => {
-        const itemElement = document.createElement('div');
-        itemElement.innerHTML = `
-            <p><strong>Namn:</strong> ${item.name}</p>
-            <p><strong>Beskrivning:</strong> ${item.description}</p>
-            <p><strong>Pris:</strong> ${item.price} kr</p>
-            <p><strong>Kategori:</strong> ${item.category}</p>
-            <button class="edit-button" data-id="${item._id}">Redigera</button>
-        `;
-        menuContainer.appendChild(itemElement);
-    });
+    const menuList = document.getElementById("menuList");
 
-    // Lägg till klickhändelse på alla "Redigera"-knappar
-    document.querySelectorAll('.edit-button').forEach(button => {
-        button.addEventListener('click', openEditForm);
-    });
-}
+    try {
+        const response = await fetch("http://localhost:5000/api/menu");
+        const menuItems = await response.json();
 
-function openEditForm(event) {
-    const id = event.target.dataset.id;
-    console.log('Redigera rätt med ID:', id);
-    // Här kan du implementera logiken för att öppna redigeringsformuläret
+        menuList.innerHTML = "";
+
+        menuItems.forEach(item => {
+            const menuItemDiv = document.createElement("div");
+            menuItemDiv.className = "menu-item";
+            
+            menuItemDiv.innerHTML = `
+                <h3>${item.name}</h3>
+                <p>${item.description}</p>
+                <p>Pris: ${item.price} SEK</p>
+                <button onclick="editItem('${item._id}')">Redigera</button>
+                <button onclick="deleteItem('${item._id}')">Ta bort</button>
+            `;
+
+            menuList.appendChild(menuItemDiv);
+        });
+    } catch (error) {
+        console.error("Fel vid hämtning av menyn:", error);
+    }
 }
