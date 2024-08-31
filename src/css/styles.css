@@ -5,6 +5,7 @@
     font-family: inria;
 }
 
+
 body {
     overflow-x: hidden;
 }
@@ -140,6 +141,7 @@ span li a:hover {
 
 #arrow {
     margin-inline: auto;
+    margin-bottom: 10%;
     width: 90%;
     text-align: center;
 }
@@ -432,6 +434,7 @@ font-size: 20px;
 
 /*historia*/
 #history-container {
+    margin-top: 10%;
     width: 80%;
     margin-inline: auto;
     border: 80px solid;
@@ -487,7 +490,7 @@ font-size: 20px;
     }
 
     #image-right {
-        width: 100%;
+        width: 80%;
     }
 }
 
@@ -561,6 +564,24 @@ font-size: 20px;
     padding: 1em;
 }
 
+@media only screen and (max-width: 900px) {
+
+    #booking-container {
+        width: 100%;
+        flex-direction: column;
+        border: none;
+    }
+
+    #booking-formDiv {
+        width: 100%;
+    }
+
+    #workHours {
+        margin-top: 20px;
+        width: 100%;
+    }
+}
+
 /*footer*/
 footer {
     background-color: #000000; /* Svart bakgrund */
@@ -602,5 +623,17 @@ footer a:hover {
 footer p {
     margin: 0;
     font-size: 14px;
+}
+
+@media only screen and (max-width: 900px) {
+    .footer-content {
+        display: flex;
+    }
+
+
+    .footer-links {
+        flex-direction: column;
+        gap: 0px;
+    }
 }
 
