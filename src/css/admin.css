@@ -1,0 +1,175 @@
+/* Grundläggande layout */
+body {
+    font-family: inria;
+    background-color: #f4f4f4;
+    margin: 0;
+    padding: 0;
+}
+
+.inria-serif-light {
+    font-family: "Inria Serif", serif;
+    font-weight: 300;
+    font-style: normal;
+  }
+  
+  .inria-serif-regular {
+    font-family: "Inria Serif", serif;
+    font-weight: 400;
+    font-style: normal;
+  }
+  
+  .inria-serif-bold {
+    font-family: "Inria Serif", serif;
+    font-weight: 700;
+    font-style: normal;
+  }
+  
+  .inria-serif-light-italic {
+    font-family: "Inria Serif", serif;
+    font-weight: 300;
+    font-style: italic;
+  }
+  
+  .inria-serif-regular-italic {
+    font-family: "Inria Serif", serif;
+    font-weight: 400;
+    font-style: italic;
+  }
+  
+  .inria-serif-bold-italic {
+    font-family: "Inria Serif", serif;
+    font-weight: 700;
+    font-style: italic;
+  }
+  
+
+
+#menuList {
+    width: 50%;
+    max-width: 800px;
+    background-color: #ffffff;
+    padding: 20px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+}
+
+
+.menu-item {
+    padding: 15px;
+    border-bottom: 1px solid #ddd;
+}
+
+.menu-item:last-child {
+    border-bottom: none;
+}
+
+.menu-item h3 {
+    margin-top: 0;
+    margin-bottom: 10px;
+    color: #333;
+}
+
+
+.menu-item p {
+    margin: 5px 0;
+    color: #666;
+}
+
+
+.menu-item button {
+    background-color: #007bff;
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    margin-right: 10px;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.menu-item button:last-child {
+    background-color: #dc3545;
+}
+
+.menu-item button:hover {
+    background-color: #0056b3;
+}
+
+.menu-item button:last-child:hover {
+    background-color: #c82333;
+}
+
+
+@media (max-width: 600px) {
+    .menu-item button {
+        width: 100%;
+        margin-bottom: 10px;
+    }
+
+    .menu-item button:last-child {
+        margin-bottom: 0;
+    }
+}
+
+#container {
+    display: flex;
+}
+
+/* Container för att lägga till meny */
+#addMenu {
+    width: 40%;
+    margin-inline: auto;
+    padding: 20px;
+    background-color: #f9f9f9;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Rubrik */
+#addMenu h2 {
+    text-align: center;
+    margin-bottom: 1rem;
+    font-size: 1.8em;
+    color: #333;
+}
+
+/* Formulär */
+#addMenuForm {
+    display: flex;
+    flex-direction: column;
+}
+
+/* Formulärelement */
+#addMenuForm label {
+    margin-bottom: 0.5rem;
+    font-weight: bold;
+    color: #555;
+}
+
+#addMenuForm input, #addMenuForm textarea, #addMenuForm button {
+    padding: 10px;
+    margin-bottom: 1rem;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    font-size: 1em;
+}
+
+/* Textområde */
+#addMenuForm textarea {
+    width: 100%;
+    height: 100px;
+    box-sizing: border-box;
+}
+
+/* Submit-knapp */
+#addMenuForm button {
+    background-color: #ffcc00;
+    color: #333;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+#addMenuForm button:hover {
+    background-color: #e6b800;
+}
