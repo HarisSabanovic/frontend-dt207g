@@ -51,3 +51,38 @@ async function deleteItem(id) {
         }
     }
 }
+
+function editItem(id) {
+    const newName = prompt("Ange nytt namn för rätten:");
+    const newDescription = prompt("Ange ny beskrivning för rätten:");
+    const newPrice = prompt("Ange nytt pris för rätten:");
+
+    if (newName && newDescription && newPrice) {
+        const updatedItem = {
+            name: newName,
+            description: newDescription,
+            price: newPrice
+        };
+
+        updateItem(id, updatedItem);
+    }
+}
+
+// Funktion för att uppdatera en rätt
+async function updateItem(id, updatedItem) {
+    try {
+        const response = await fetch(`http://localhost:5000/api/menu/${id}`, {
+            method: "PUT",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify(updatedItem)
+        });
+        const result = await response.json();
+        alert("Rätten uppdaterades!");
+        fetchMenu(); // Hämta menyn på nytt för att uppdatera listan
+    } catch (error) {
+        console.error("Fel vid uppdatering av menyrätt:", error);
+    }
+}
+
