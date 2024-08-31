@@ -1,0 +1,63 @@
+/* Container för bokningslistan */
+#bookingList {
+    max-width: 800px;
+    margin: 20px auto;
+    padding: 20px;
+    background-color: #ffffff;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Bokningspost */
+.booking-item {
+    border-bottom: 1px solid #e0e0e0;
+    padding: 15px 0;
+}
+
+/* Rubrik för varje bokning */
+.booking-item h3 {
+    font-size: 1.5em;
+    color: #333;
+    margin-bottom: 0.5rem;
+}
+
+/* Detaljer för varje bokning */
+.booking-item p {
+    font-size: 1em;
+    color: #555;
+    margin-bottom: 0.3rem;
+}
+
+/* Knappar för redigering och radering */
+.booking-item button {
+    padding: 8px 12px;
+    margin-right: 10px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.booking-item button:hover {
+    background-color: #ccc;
+}
+
+/* Redigera-knapp */
+.booking-item button:nth-child(1) {
+    background-color: #4CAF50; /* Grön */
+    color: white;
+}
+
+.booking-item button:nth-child(1):hover {
+    background-color: #45a049;
+}
+
+/* Radera-knapp */
+.booking-item button:nth-child(2) {
+    background-color: #f44336; /* Röd */
+    color: white;
+}
+
+.booking-item button:nth-child(2):hover {
+    background-color: #e53935;
+}
