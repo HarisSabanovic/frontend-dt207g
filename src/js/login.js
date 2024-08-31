@@ -27,7 +27,7 @@ document.getElementById("login-form").addEventListener("submit", async function(
 
         // Om token är giltig, omdirigera användaren
         if (isValid) {
-            window.location.href = "admins.html";
+            window.location.href = "http://localhost:1234/admins.html";
         } else {
             throw new Error("Ogiltig token");
         }
