@@ -339,6 +339,7 @@ font-size: 20px;
 }
 
 #mainCourseList {
+    grid-area: main;
     border: 100px solid white;
     /*border-image: url(/src/assets/dessert-border.png) 30%;*/
     color: black;
@@ -379,6 +380,56 @@ font-size: 20px;
     padding: 5px;
 }
 
+@media only screen and (max-width: 900px){
+    #menu-container {
+        margin-top: 100px;
+        margin-bottom: 250px;
+        width: 80%;
+        margin-inline: auto;
+        display: grid;
+        grid-template-columns: repeat(2, 1fr); 
+        grid-template-rows: auto; 
+        grid-template-areas:
+            "header header"
+            "appetizer appetizer"
+            "main main"
+            "dessert dessert";
+        gap: 10px; 
+    }
+
+    #appetizerList {
+        border: none;
+        max-width: 100%;
+    }
+
+    #mainCourseList {
+        border: none;
+        max-width: 100%;
+    }
+
+    #dessertList {
+        border: none;
+        max-width: 100%;
+    }
+
+    #history-container {
+        border: none !important;
+        max-width: 100%;
+    }
+
+    footer {
+        max-width: 100%;
+    }
+
+    footer a {
+        font-size: 16px;
+    }
+
+    #footer-links li{
+        padding: 0 !important;
+    }
+}
+
 /*historia*/
 #history-container {
     width: 80%;
@@ -417,6 +468,27 @@ font-size: 20px;
 
 #image-right img {
     max-width: 100%;
+}
+
+@media only screen and (max-width: 900px){
+   
+   
+    #history-container {
+        margin-top: 30%;
+    }
+
+    #history-info {
+        flex-direction: column-reverse;
+        margin-bottom: 30%;
+    }
+
+    #text-left {
+        width: 100%;
+    }
+
+    #image-right {
+        width: 100%;
+    }
 }
 
 
