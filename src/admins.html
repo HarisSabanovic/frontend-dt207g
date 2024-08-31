@@ -4,9 +4,46 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Administration</title>
-    <script src="/src/js/admin.js"></script>
+    <link rel="stylesheet" href="/src/css/admin.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inria+Serif:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&display=swap" rel="stylesheet">
+    <script src="/src/js/admin.js" type="module" defer></script>
 </head>
 <body>
-    <div id="menuList"></div>
+
+    <header>
+        <nav>
+            <ul>
+                <li><a href="admins.html">Kolla Meny</a></li>
+                <li><a href="booking.html">Kolla bokningar</a></li>
+                <li><a href="index.html">Logga ut</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <h2>Meny</h2>
+
+    <div id="container">
+       <div id="menuList"></div>
+       <div id="addMenu">
+        <h2>Lägg till ny rätt</h2>
+        <form id="addMenuForm">
+            <label for="menu-name">Namn:</label>
+            <input type="text" id="menu-name" name="name" required>
+    
+            <label for="menu-description">Beskrivning:</label>
+            <textarea id="menu-description" name="description" required></textarea>
+    
+            <label for="menu-price">Pris (SEK):</label>
+            <input type="number" id="menu-price" name="price" required>
+    
+            <label for="menu-category">Kategori:</label>
+            <input type="text" id="menu-category" name="category" required>
+    
+            <button type="submit">Lägg till Menypost</button>
+        </form>
+    </div>
+    </div>
 </body>
 </html>
