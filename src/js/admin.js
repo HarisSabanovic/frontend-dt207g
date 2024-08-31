@@ -30,3 +30,24 @@ async function fetchMenu() {
         console.error("Fel vid hämtning av menyn:", error);
     }
 }
+
+// Funktion för att ta bort en rätt
+async function deleteItem(id) {
+    if (confirm("Är du säker på att du vill ta bort denna rätt?")) {
+        try {
+            const response = await fetch(`http://localhost:5000/api/menu/${id}`, {
+                method: "DELETE"
+            });
+
+            if (!response.ok) {
+                throw new Error("Något gick fel vid radering av menyrätten");
+            }
+
+            const result = await response.json();
+            alert(result.message);
+            fetchMenu(); // Hämta menyn på nytt för att uppdatera listan
+        } catch (error) {
+            console.error("Fel vid radering av menyrätt:", error);
+        }
+    }
+}
