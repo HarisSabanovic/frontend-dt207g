@@ -2,6 +2,7 @@ document.addEventListener("DOMContentLoaded", function () {
     fetchMenu();
 });
 
+
 async function fetchMenu() {
 
     const menuList = document.getElementById("menuList");
@@ -20,8 +21,8 @@ async function fetchMenu() {
                 <h3>${item.name}</h3>
                 <p>${item.description}</p>
                 <p>Pris: ${item.price} SEK</p>
-                <button onclick="editItem('${item._id}')">Redigera</button>
-                <button onclick="deleteItem('${item._id}')">Ta bort</button>
+                <button class="edit-button-class" data-id="${item._id}">Redigera</button>
+                <button class="delete-button-class" data-id="${item._id}">Ta bort</button>
             `;
 
             menuList.appendChild(menuItemDiv);
@@ -31,8 +32,7 @@ async function fetchMenu() {
     }
 }
 
-// Funktion för att ta bort en rätt
-async function deleteItem(id) {
+async function deleteDish(id) {
     if (confirm("Är du säker på att du vill ta bort denna rätt?")) {
         try {
             const response = await fetch(`http://localhost:5000/api/menu/${id}`, {
@@ -52,16 +52,18 @@ async function deleteItem(id) {
     }
 }
 
-function editItem(id) {
+function editDish(id) {
     const newName = prompt("Ange nytt namn för rätten:");
     const newDescription = prompt("Ange ny beskrivning för rätten:");
     const newPrice = prompt("Ange nytt pris för rätten:");
+    const newCategory = prompt("Ange ny kategori för rätten:");
 
     if (newName && newDescription && newPrice) {
         const updatedItem = {
             name: newName,
             description: newDescription,
-            price: newPrice
+            price: newPrice,
+            category: newCategory
         };
 
         updateItem(id, updatedItem);
@@ -86,3 +88,44 @@ async function updateItem(id, updatedItem) {
     }
 }
 
+document.addEventListener('click', function (event) {
+    if (event.target.matches('.edit-button-class')) {
+        editDish(event.target.dataset.id);
+    }
+
+    if (event.target.matches('.delete-button-class')) {
+        deleteDish(event.target.dataset.id);
+    }
+});
+
+
+document.getElementById("addMenuForm").addEventListener("submit", async function(event) {
+    event.preventDefault();
+
+    const name = document.getElementById("menu-name").value;
+    const description = document.getElementById("menu-description").value;
+    const price = document.getElementById("menu-price").value;
+    const category = document.getElementById("menu-category").value;
+
+    try {
+        const response = await fetch("http://localhost:5000/api/menu", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify({ name, description, price, category })
+        });
+
+        if (!response.ok) {
+            throw new Error("Failed to add menu item");
+        }
+
+        const data = await response.json();
+        console.log("Menypost tillagd:", data);
+        alert("Menypost tillagd!");
+        document.getElementById("addMenuForm").reset();
+    } catch (error) {
+        console.error("Fel vid tillägg av menypost:", error);
+        alert("Fel vid tillägg av menypost");
+    }
+});
