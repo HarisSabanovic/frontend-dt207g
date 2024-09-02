@@ -1,3 +1,12 @@
+body {
+    font-family: inria;
+    background-color: #f4f4f4;
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+
 /* Container för bokningslistan */
 #bookingList {
     max-width: 800px;
