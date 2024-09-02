@@ -5,9 +5,28 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Bokningar</title>
     <link rel="stylesheet" href="/src/css/booking.css">
+    <link rel="stylesheet" href="/src/css/header.css"> 
     <script src="/src/js/booking.js" type="module" defer></script>
+    <script src="/src/js/nav.js" type="module" defer></script>
 </head>
 <body>
+
+    <header>
+
+        <div id="menu-toggle" class="menu-toggle">
+            <span id="cross1"></span>
+            <span id="horizontal"></span>
+            <span id="cross2"></span>
+        </div>
+
+        <nav id="nav-menu">
+            <ul>
+                <li><a href="admins.html">Meny</a></li>
+                <li class="chosen-link"><a href="booking.html">Bokningar</a></li>
+                <li><a href="index.html">Logga ut</a></li>
+            </ul>
+        </nav>
+    </header>
 
     <h1>Bokningar</h1>
     <div id="bookingList"></div>

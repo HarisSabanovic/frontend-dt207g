@@ -5,26 +5,42 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Administration</title>
     <link rel="stylesheet" href="/src/css/admin.css">
+    <link rel="stylesheet" href="/src/css/header.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inria+Serif:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&display=swap" rel="stylesheet">
     <script src="/src/js/admin.js" type="module" defer></script>
+    <script src="/src/js/nav.js" type="module" defer></script>
 </head>
 <body>
 
     <header>
-        <nav>
+
+        <div id="menu-toggle" class="menu-toggle">
+            <span id="cross1"></span>
+            <span id="horizontal"></span>
+            <span id="cross2"></span>
+        </div>
+
+        <nav id="nav-menu">
             <ul>
-                <li><a href="admins.html">Kolla Meny</a></li>
-                <li><a href="booking.html">Kolla bokningar</a></li>
+                <li class="chosen-link"><a href="admins.html">Meny</a></li>
+                <li><a href="booking.html">Bokningar</a></li>
                 <li><a href="index.html">Logga ut</a></li>
             </ul>
         </nav>
     </header>
 
-    <h2>Meny</h2>
+
 
     <div id="container">
+
+
+        <div id="menuLink">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--!Font Awesome Free 6.6.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.--><path fill="#ffffff" d="M256 80c0-17.7-14.3-32-32-32s-32 14.3-32 32l0 144L48 224c-17.7 0-32 14.3-32 32s14.3 32 32 32l144 0 0 144c0 17.7 14.3 32 32 32s32-14.3 32-32l0-144 144 0c17.7 0 32-14.3 32-32s-14.3-32-32-32l-144 0 0-144z"/></svg>
+            <a href="#addMenuForm">Lägg till ny rätt</a>
+        </div>
+
        <div id="menuList"></div>
        <div id="addMenu">
         <h2>Lägg till ny rätt</h2>
