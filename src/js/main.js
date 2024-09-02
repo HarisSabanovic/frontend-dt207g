@@ -105,3 +105,36 @@ async function fetchDessert() {
     }
     
 }
+
+document.getElementById("booking-form").addEventListener("submit", async function(event) {
+    event.preventDefault();
+
+    const bookingData = {
+        firstName: document.getElementById("first-name").value,
+        lastName: document.getElementById("last-name").value,
+        email: document.getElementById("email").value,
+        phoneNumber: document.getElementById("phone-number").value,
+        bookingDateTime: document.getElementById("booking-date-time").value,
+        amountPeople: document.getElementById("amount-people").value,
+    };
+
+    try {
+        const response = await fetch("http://localhost:5000/api/booking", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify(bookingData)
+        });
+
+        if (response.ok) {
+            // Återställ formuläret efter lyckad bokning
+            document.getElementById("booking-form").reset();
+        } else {
+            throw new Error("Bokningen misslyckades");
+        }
+    } catch (error) {
+        console.error("Fel vid bokning:", error);
+        alert("Ett fel uppstod vid bokningen. Försök igen.");
+    }
+});
