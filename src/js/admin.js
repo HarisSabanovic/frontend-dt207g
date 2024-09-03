@@ -8,7 +8,7 @@ async function fetchMenu() {
     const menuList = document.getElementById("menuList");
 
     try {
-        const response = await fetch("http://localhost:5000/api/menu");
+        const response = await fetch("https://projekt-ethique.onrender.com/api/menu");
         const menuItems = await response.json();
 
         menuList.innerHTML = "";
@@ -35,7 +35,7 @@ async function fetchMenu() {
 async function deleteDish(id) {
     if (confirm("Är du säker på att du vill ta bort denna rätt?")) {
         try {
-            const response = await fetch(`http://localhost:5000/api/menu/${id}`, {
+            const response = await fetch(`https://projekt-ethique.onrender.com/api/menu/${id}`, {
                 method: "DELETE"
             });
 
@@ -73,7 +73,7 @@ function editDish(id) {
 // Funktion för att uppdatera en rätt
 async function updateItem(id, updatedItem) {
     try {
-        const response = await fetch(`http://localhost:5000/api/menu/${id}`, {
+        const response = await fetch(`https://projekt-ethique.onrender.com/api/menu/${id}`, {
             method: "PUT",
             headers: {
                 "Content-Type": "application/json"
@@ -108,7 +108,7 @@ document.getElementById("addMenuForm").addEventListener("submit", async function
     const category = document.getElementById("menu-category").value;
 
     try {
-        const response = await fetch("http://localhost:5000/api/menu", {
+        const response = await fetch("https://projekt-ethique.onrender.com/api/menu", {
             method: "POST",
             headers: {
                 "Content-Type": "application/json"
@@ -128,4 +128,28 @@ document.getElementById("addMenuForm").addEventListener("submit", async function
         console.error("Fel vid tillägg av menypost:", error);
         alert("Fel vid tillägg av menypost");
     }
+});
+
+
+document.addEventListener("DOMContentLoaded", async function () {
+    const token = localStorage.getItem("token");
+
+    if(!token){
+        window.location.href = "/login.html";
+        return;
+    }
+})
+
+document.addEventListener("DOMContentLoaded", function () {
+  const logoutButton = document.getElementById("logout");
+
+  if (logoutButton) {
+    logoutButton.addEventListener("click", function () {
+       // Ta bort token från localStorage
+       localStorage.removeItem("token");
+    
+       // Omdirigera till inloggningssidan
+       window.location.href = "/login.html";
+    });
+ }
 });
