@@ -40,8 +40,8 @@ async function fetchBookings() {
                 <p>Telefonnummer: ${booking.phoneNumber}</p>
                 <p>Datum och tid: ${new Date(booking.bookingDateTime).toLocaleString()}</p> 
                 <p>Antal personer: ${booking.amountPeople}</p>
-                <button class="edit-item-class" data-id="${booking._id}">Redigera</button>
-                <button class="delete-item-class" data-id="${booking._id}">Ta bort</button>
+                <button id="editBooking" class="edit-item-class" data-id="${booking._id}">Redigera</button>
+                <button id="deleteBooking" class="delete-item-class" data-id="${booking._id}">Ta bort</button>
             `;
 
             //<p>Datum och tid: ${new Date(booking.bookingDateTime).toLocaleString()}</p> 

@@ -1,4 +1,4 @@
-/* Grundläggande layout */
+/*body layout*/
 body {
     font-family: inria;
     background-color: #f4f4f4;
@@ -163,7 +163,7 @@ body {
     margin-bottom: 10%;
 }
 
-/* Rubrik */
+
 #addMenu h2 {
     text-align: center;
     margin-bottom: 1rem;
@@ -171,13 +171,13 @@ body {
     color: #333;
 }
 
-/* Formulär */
+
 #addMenuForm {
     display: flex;
     flex-direction: column;
 }
 
-/* Formulärelement */
+
 #addMenuForm label {
     margin-bottom: 0.5rem;
     font-weight: bold;
@@ -192,14 +192,14 @@ body {
     font-size: 1em;
 }
 
-/* Textområde */
+
 #addMenuForm textarea {
     width: 100%;
     height: 100px;
     box-sizing: border-box;
 }
 
-/* Submit-knapp */
+
 #addMenuForm button {
     background-color: #ffcc00;
     color: #333;
