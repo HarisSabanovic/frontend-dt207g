@@ -24,6 +24,7 @@ async function fetchAppetizers() {
         //hämtar förätt div element
         const appetizersList = document.getElementById('appetizerList');
 
+        //skapar en div för varje förrätt
         appetizers.forEach(appetizer => {
             const div = document.createElement('div');
             div.className = 'appetizer-item';
@@ -36,16 +37,18 @@ async function fetchAppetizers() {
         });
 
 
+        //felhantering
     } catch(error) {
         console.log("error: " + error.message);
     }
     
 }
 
-//hämta varmsätter
+//hämta varmrätter
 async function fetchMainCourse() {
 
     try {
+        //GET förfrågan till api för att hämta varmrätter
         const response = await fetch("https://projekt-ethique.onrender.com/api/menu");
 
         if(!response.ok) {
@@ -54,10 +57,12 @@ async function fetchMainCourse() {
 
         const data = await response.json();
 
+        //filtrerar ut alla varmrätter
         const mainCourses = data.filter(item => item.category === "Varmrätt");
 
         const mainCourseDiv = document.getElementById("mainCourseList");
 
+        //skapar div för varje varmrätt som skrivs ut
         mainCourses.forEach(mainCourse => {
             const div = document.createElement('div');
             div.className = 'mainCourse-item';
@@ -68,6 +73,8 @@ async function fetchMainCourse() {
              `;
              mainCourseDiv.appendChild(div);
         });
+
+        //felhantering
     } catch(error) {
         console.log("error: " + error.message);
     }
@@ -75,10 +82,10 @@ async function fetchMainCourse() {
 }
 
 //hämtar efterrätter
-
 async function fetchDessert() {
 
     try {
+        //GET förfrågan till api för att hämta efterrätter
         const response = await fetch("https://projekt-ethique.onrender.com/api/menu");
 
         if(!response.ok) {
@@ -87,10 +94,12 @@ async function fetchDessert() {
 
         const data = await response.json();
 
+        //filtrerar ut efterräter
         const desserts = data.filter(item => item.category === "Efterrätt");
 
         const dessertDiv = document.getElementById("dessertList");
 
+        //skapar en div för varje efterrätt
         desserts.forEach(dessert => {
             const div = document.createElement("div");
             div.className = "dessert-item";
@@ -101,6 +110,8 @@ async function fetchDessert() {
                 ;
                 dessertDiv.appendChild(div);
         });
+
+        //felhantering
     } catch(error) {
         console.log("error: " + error.message);
     }
@@ -110,6 +121,7 @@ async function fetchDessert() {
 async function fetchDrinks() {
 
     try {
+        //GET förfrågan till api för att hämta drickor
         const response = await fetch("https://projekt-ethique.onrender.com/api/menu")
 
         if(!response.ok) {
@@ -118,10 +130,12 @@ async function fetchDrinks() {
 
         const data = await response.json();
 
+        //filtrerar ut dricka 
         drinks = data.filter(item => item.category === "Dricka");
 
         const drinkDiv = document.getElementById("drinkList");
 
+        //skapar div för varje dricka 
         drinks.forEach(drink => {
             const div = document.createElement("div");
             div.className = "drink-item";
@@ -132,14 +146,19 @@ async function fetchDrinks() {
                 ;
                 drinkDiv.appendChild(div);
         })
+
+        //felhantering
     } catch(error) {
         console.log("Kunde inte hämta dricksortimentet: " + error);
     }
 }
 
+//eventlysnare för när formuläret skickas in
 document.getElementById("booking-form").addEventListener("submit", async function(event) {
+    //förhindrar formuläret att uppdatera sidan när användaren skickar formuläret
     event.preventDefault();
 
+    //hämtar värden från formuläret
     const bookingData = {
         firstName: document.getElementById("first-name").value,
         lastName: document.getElementById("last-name").value,
@@ -150,22 +169,26 @@ document.getElementById("booking-form").addEventListener("submit", async functio
     };
 
     try {
-        console.log(bookingData);
+        
+        //POST förfrågan till APi för att lägga till bokning
 
         const response = await fetch("https://projekt-ethique.onrender.com/api/booking", {
             method: "POST",
             headers: {
-                "Content-Type": "application/json"
+                "Content-Type": "application/json" //JSON DATA som skickas
             },
-            body: JSON.stringify(bookingData)
+            body: JSON.stringify(bookingData) //de värden som skickas
         });
 
         if (response.ok) {
-            // Återställ formuläret efter lyckad bokning
+
+            //återställer formuläret efter lyckad bokning
             document.getElementById("booking-form").reset();
         } else {
             throw new Error("Bokningen misslyckades");
         }
+
+        //felhantering
     } catch (error) {
         console.error("Fel vid bokning:" + error);
         alert("Ett fel uppstod vid bokningen. Försök igen.");
