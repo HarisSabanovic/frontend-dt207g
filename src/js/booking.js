@@ -108,3 +108,26 @@ async function updateBooking(id, updatedBooking) {
         fetchBookings(); 
     }
 }
+
+document.addEventListener("DOMContentLoaded", async function () {
+    const token = localStorage.getItem("token");
+
+    if(!token){
+        window.location.href = "/login.html";
+        return;
+    }
+})
+
+document.addEventListener("DOMContentLoaded", function () {
+  const logoutButton = document.getElementById("logout");
+
+  if (logoutButton) {
+    logoutButton.addEventListener("click", function () {
+       // Ta bort token från localStorage
+       localStorage.removeItem("token");
+    
+       // Omdirigera till inloggningssidan
+       window.location.href = "/login.html";
+    });
+ }
+});
