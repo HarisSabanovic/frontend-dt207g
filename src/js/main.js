@@ -3,13 +3,14 @@ document.addEventListener('DOMContentLoaded', () => {
     fetchAppetizers();
     fetchMainCourse();
     fetchDessert();
+    fetchDrinks();
 });
 
 
 //Hämta förräter
 async function fetchAppetizers() {
     try {
-        const response = await fetch("http://localhost:5000/api/menu");
+        const response = await fetch("https://projekt-ethique.onrender.com/api/menu");
 
         if(!response.ok) {
             throw new Error("Could not get appetizers");
@@ -45,7 +46,7 @@ async function fetchAppetizers() {
 async function fetchMainCourse() {
 
     try {
-        const response = await fetch("http://localhost:5000/api/menu");
+        const response = await fetch("https://projekt-ethique.onrender.com/api/menu");
 
         if(!response.ok) {
             throw new Error("Kunde inte hämta Varmrätter")
@@ -78,7 +79,7 @@ async function fetchMainCourse() {
 async function fetchDessert() {
 
     try {
-        const response = await fetch("http://localhost:5000/api/menu");
+        const response = await fetch("https://projekt-ethique.onrender.com/api/menu");
 
         if(!response.ok) {
             throw new Error("Could not get desserts");
@@ -106,6 +107,36 @@ async function fetchDessert() {
     
 }
 
+async function fetchDrinks() {
+
+    try {
+        const response = await fetch("https://projekt-ethique.onrender.com/api/menu")
+
+        if(!response.ok) {
+            throw new Error("Kunde inte hämta dricksortiment")
+        }
+
+        const data = await response.json();
+
+        drinks = data.filter(item => item.category === "Dricka");
+
+        const drinkDiv = document.getElementById("drinkList");
+
+        drinks.forEach(drink => {
+            const div = document.createElement("div");
+            div.className = "drink-item";
+            div.innerHTML = `
+                <p class="drink-name"><strong>${drink.name}</strong></p>
+                <p class="drink-description">${drink.description}</p>
+                <p class="drink-price"><strong>${drink.price}kr </strong></p>`
+                ;
+                drinkDiv.appendChild(div);
+        })
+    } catch(error) {
+        console.log("Kunde inte hämta dricksortimentet: " + error);
+    }
+}
+
 document.getElementById("booking-form").addEventListener("submit", async function(event) {
     event.preventDefault();
 
@@ -115,11 +146,13 @@ document.getElementById("booking-form").addEventListener("submit", async functio
         email: document.getElementById("email").value,
         phoneNumber: document.getElementById("phone-number").value,
         bookingDateTime: document.getElementById("booking-date-time").value,
-        amountPeople: document.getElementById("amount-people").value,
+        amountPeople: parseInt(document.getElementById("amount-people").value, 10), // omvandlar till nummer
     };
 
     try {
-        const response = await fetch("http://localhost:5000/api/booking", {
+        console.log(bookingData);
+
+        const response = await fetch("https://projekt-ethique.onrender.com/api/booking", {
             method: "POST",
             headers: {
                 "Content-Type": "application/json"
