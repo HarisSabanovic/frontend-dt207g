@@ -616,15 +616,16 @@ footer p {
     font-size: 14px;
 }
 
-@media only screen and (max-width: 900px) {
+@media only screen and (max-width: 600px) {
     .footer-content {
         display: flex;
+        flex-direction: column;
     }
-
 
     .footer-links {
         flex-direction: column;
-        gap: 0px;
+        gap: 0;
     }
+ 
 }
 
