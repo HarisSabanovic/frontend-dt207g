@@ -146,7 +146,7 @@ document.getElementById("booking-form").addEventListener("submit", async functio
         email: document.getElementById("email").value,
         phoneNumber: document.getElementById("phone-number").value,
         bookingDateTime: document.getElementById("booking-date-time").value,
-        amountPeople: parseInt(document.getElementById("amount-people").value, 10), // omvandlar till nummer
+        amountPeople: document.getElementById("amount-people").value
     };
 
     try {
@@ -167,7 +167,7 @@ document.getElementById("booking-form").addEventListener("submit", async functio
             throw new Error("Bokningen misslyckades");
         }
     } catch (error) {
-        console.error("Fel vid bokning:", error);
+        console.error("Fel vid bokning:" + error);
         alert("Ett fel uppstod vid bokningen. Försök igen.");
     }
 });
