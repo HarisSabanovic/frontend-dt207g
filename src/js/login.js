@@ -7,7 +7,7 @@ document.getElementById("login-form").addEventListener("submit", async function(
     const password = document.getElementById("password").value;
 
     try {
-        const response = await fetch("http://localhost:5000/api/login", {
+        const response = await fetch("https://projekt-ethique.onrender.com/api/login", {
             method: "POST",
             headers: {
                 "Content-Type": "application/json"
@@ -27,7 +27,7 @@ document.getElementById("login-form").addEventListener("submit", async function(
 
         // Om token är giltig, omdirigera användaren
         if (isValid) {
-            window.location.href = "http://localhost:1234/admins.html";
+            window.location.href = "/admins.html";
         } else {
             throw new Error("Ogiltig token");
         }
@@ -41,7 +41,7 @@ async function verifyToken(token) {
     console.log(token);
 
     try {
-        const response = await fetch('/api/protected', {
+        const response = await fetch('https://projekt-ethique.onrender.com/api/protected', {
             headers: {
                 'Authorization': 'Bearer ' + token
             }
