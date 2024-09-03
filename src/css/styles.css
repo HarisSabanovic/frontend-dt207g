@@ -70,44 +70,8 @@ body {
     margin-top: 25px;
 }
 
-nav ul {
-    display: flex;
-    list-style: none;
-    justify-content: center;
-    justify-content: space-evenly;
-}
 
-nav li {
-    padding: 0.5em;
-    font-size: 30px;
-}
 
-nav li a {
-    text-decoration: none;
-    color: black;
-    cursor: pointer;
-
-    &:hover {
-        border-bottom: 2px solid black;
-    }
-}
-
-span {
-    border: 1px solid black;
-    transition: background-color 0.5s ease-in;
-
-    &:hover {
-        background-color: black;
-    }
-}
-
-span li a:hover {
-    transition: color 0.5s ease-in;
-
-    &:hover {
-        color: white;
-    }
-}
 
 
 /*huvud innehåll*/
@@ -308,7 +272,8 @@ font-size: 20px;
     grid-template-areas:
         "header header"
         "appetizer main"
-        "dessert dessert";
+        "dessert dessert"
+        "drinks drinks";
     gap: 10px; 
 }
 
@@ -382,6 +347,26 @@ font-size: 20px;
     padding: 5px;
 }
 
+#drinkList {
+    grid-area: drinks;
+    border: 100px solid;
+    border-image: url(/src/assets/drink-border.png) 30%;
+}
+
+#drinkList h3 {
+    text-align: center;
+    margin-bottom: 30px;
+    font-size: 34px;
+}
+
+.drink-item {
+    margin-bottom: 20px;
+}
+
+.drink-item p {
+    padding: 5px;
+}
+
 @media only screen and (max-width: 900px){
     #menu-container {
         margin-top: 100px;
@@ -395,23 +380,29 @@ font-size: 20px;
             "header header"
             "appetizer appetizer"
             "main main"
-            "dessert dessert";
+            "dessert dessert"
+            "drinks drinks";
         gap: 10px; 
     }
 
-    #appetizerList {
+    #appetizerList{
         border: none;
-        max-width: 100%;
+        min-width: 100%;
     }
 
     #mainCourseList {
         border: none;
-        max-width: 100%;
+        min-width: 100%;
     }
 
     #dessertList {
         border: none;
-        max-width: 100%;
+        width: 100%;
+    }
+
+    #drinkList {
+        border: none;
+        width: 100%;
     }
 
     #history-container {
