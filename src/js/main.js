@@ -1,27 +1,22 @@
 
 document.addEventListener('DOMContentLoaded', () => {
    
-    displayLoading();
     fetchAppetizers();
     fetchMainCourse();
     fetchDessert();
     fetchDrinks();
 });
 
-const loaders = document.querySelectorAll(".loader")
 
+const loaders = document.querySelectorAll(".loader");
 
-function displayLoading(){
-    loaders.forEach(loader => {
-        loader.style.display = "block";
-    })
-
-    setTimeout(() => {
+    function displayLoading(){
+        console.log("loader visas");
         loaders.forEach(loader => {
-            loader.style.display = "none";
-        }, 5000);
-    })
-}
+            loader.style.display = "block";
+        })
+    }
+
 
 function hideLoading() {
     loaders.forEach(loader => {
@@ -32,6 +27,8 @@ function hideLoading() {
 //Hämta förräter
 async function fetchAppetizers() {
     try {
+        displayLoading();
+
         const response = await fetch("https://projekt-ethique.onrender.com/api/menu");
 
         if(!response.ok) {
@@ -60,11 +57,11 @@ async function fetchAppetizers() {
         });
 
 
-        hideLoading();
-
         //felhantering
     } catch(error) {
         console.log("error: " + error.message);
+    } finally {
+        hideLoading();
     }
     
 }
@@ -73,6 +70,7 @@ async function fetchAppetizers() {
 async function fetchMainCourse() {
 
     try {
+        displayLoading();
         //GET förfrågan till api för att hämta varmrätter
         const response = await fetch("https://projekt-ethique.onrender.com/api/menu");
 
@@ -103,6 +101,8 @@ async function fetchMainCourse() {
         //felhantering
     } catch(error) {
         console.log("error: " + error.message);
+    } finally {
+        hideLoading();
     }
     
 }
@@ -111,6 +111,7 @@ async function fetchMainCourse() {
 async function fetchDessert() {
 
     try {
+        displayLoading();
         //GET förfrågan till api för att hämta efterrätter
         const response = await fetch("https://projekt-ethique.onrender.com/api/menu");
 
@@ -141,6 +142,8 @@ async function fetchDessert() {
         //felhantering
     } catch(error) {
         console.log("error: " + error.message);
+    } finally {
+        hideLoading();
     }
     
 }
@@ -148,6 +151,7 @@ async function fetchDessert() {
 async function fetchDrinks() {
 
     try {
+        displayLoading();
         //GET förfrågan till api för att hämta drickor
         const response = await fetch("https://projekt-ethique.onrender.com/api/menu")
 
@@ -178,6 +182,8 @@ async function fetchDrinks() {
         //felhantering
     } catch(error) {
         console.log("Kunde inte hämta dricksortimentet: " + error);
+    }  finally {
+        hideLoading();
     }
 }
 

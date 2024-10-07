@@ -1,6 +1,15 @@
+const loader = document.querySelector(".loader");
+
+    function displayLoading(){
+        loader.style.display = "block";
+    }
+
+
 //eventlyssnare som körs när användaren skickar formulär data
 document.getElementById("login-form").addEventListener("submit", async function(event) {
     event.preventDefault();
+
+    displayLoading();
 
     // Den input som användaren skriver in
     const username = document.getElementById("username").value;
