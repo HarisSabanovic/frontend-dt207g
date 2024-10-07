@@ -1,11 +1,33 @@
 
 document.addEventListener('DOMContentLoaded', () => {
+   
+    displayLoading();
     fetchAppetizers();
     fetchMainCourse();
     fetchDessert();
     fetchDrinks();
 });
 
+const loaders = document.querySelectorAll(".loader")
+
+
+function displayLoading(){
+    loaders.forEach(loader => {
+        loader.style.display = "block";
+    })
+
+    setTimeout(() => {
+        loaders.forEach(loader => {
+            loader.style.display = "none";
+        }, 5000);
+    })
+}
+
+function hideLoading() {
+    loaders.forEach(loader => {
+        loader.style.display = "none";
+    })
+}
 
 //Hämta förräter
 async function fetchAppetizers() {
@@ -24,6 +46,7 @@ async function fetchAppetizers() {
         //hämtar förätt div element
         const appetizersList = document.getElementById('appetizerList');
 
+
         //skapar en div för varje förrätt
         appetizers.forEach(appetizer => {
             const div = document.createElement('div');
@@ -36,6 +59,8 @@ async function fetchAppetizers() {
             appetizersList.appendChild(div);
         });
 
+
+        hideLoading();
 
         //felhantering
     } catch(error) {
@@ -74,6 +99,7 @@ async function fetchMainCourse() {
              mainCourseDiv.appendChild(div);
         });
 
+        hideLoading();
         //felhantering
     } catch(error) {
         console.log("error: " + error.message);
@@ -111,6 +137,7 @@ async function fetchDessert() {
                 dessertDiv.appendChild(div);
         });
 
+        hideLoading();
         //felhantering
     } catch(error) {
         console.log("error: " + error.message);
@@ -147,6 +174,7 @@ async function fetchDrinks() {
                 drinkDiv.appendChild(div);
         })
 
+        hideLoading();
         //felhantering
     } catch(error) {
         console.log("Kunde inte hämta dricksortimentet: " + error);
