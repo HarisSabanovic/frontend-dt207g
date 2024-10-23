@@ -4,6 +4,10 @@ const loader = document.querySelector(".loader");
         loader.style.display = "block";
     }
 
+    function hideLoading() {
+            loader.style.display = "none";
+    }
+
 
 //eventlyssnare som körs när användaren skickar formulär data
 document.getElementById("login-form").addEventListener("submit", async function(event) {
@@ -45,6 +49,8 @@ document.getElementById("login-form").addEventListener("submit", async function(
             throw new Error("Ogiltig token");
         }
 
+        hideLoading();
+
         //fel hantering
     } catch (error) {
         console.log("Server fel inträffade: " + error.message);
@@ -71,6 +77,6 @@ async function verifyToken(token) {
 
     } catch (err) {
         console.error("Ett fel inträffade vid verifiering av token:", err.message);
-        return false; // token är ogiltig eller servern avvisade begäran
+        return false; // token är ogiltig 
     }
 }
